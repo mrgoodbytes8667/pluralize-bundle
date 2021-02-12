@@ -1,0 +1,38 @@
+{
+    "name": "mrgoodbytes8667/pluralize-bundle",
+    "type": "symfony-bundle",
+    "license": "CC-BY-NC-4.0",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*",
+        "laravel/helpers": "^1.4",
+        "symfony/config": "^5.2",
+        "symfony/console": "^5.2",
+        "symfony/dependency-injection": "^5.2",
+        "symfony/framework-bundle": "^5.2",
+        "symfony/serializer": "^5.2",
+        "symfony/string": "^5.2",
+        "symfony/validator": "^5.2",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "require-dev": {
+        "doctrine/common": "^3.0",
+        "symfony/phpunit-bridge": "^5.2",
+        "symfony/var-dumper": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "MrGoodBytes",
+            "email": "bytes@goodbytes.live"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Bytes\\PluralizeBundle\\": "src/",
+            "Bytes\\PluralizeBundle\\Tests\\": "Tests/"
+        }
+    }
+}
