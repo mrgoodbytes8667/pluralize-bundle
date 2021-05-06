@@ -1,0 +1,12 @@
+--TEST--
+"pluralize" filter
+--TEMPLATE--
+{{ "word"|pluralize(0) }}
+{{ "word"|pluralize(1) }}
+{{ "word"|pluralize(2) }}
+--DATA--
+return []
+--EXPECT--
+words
+word
+words
