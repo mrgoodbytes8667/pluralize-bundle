@@ -1,9 +1,11 @@
 # Pluralize Bundle
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/mrgoodbytes8667/pluralize-bundle?style=flat)](https://packagist.org/packages/mrgoodbytes8667/pluralize-bundle)
-[![Packagist Version](https://img.shields.io/packagist/v/mrgoodbytes8667/pluralize-bundle?style=flat)](https://packagist.org/packages/mrgoodbytes8667/pluralize-bundle)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mrgoodbytes8667/pluralize-bundle/release?style=flat&label=stable)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mrgoodbytes8667/pluralize-bundle/tests?style=flat)
-![Packagist License](https://img.shields.io/packagist/l/mrgoodbytes8667/pluralize-bundle?style=flat)    
+[![Packagist Version](https://img.shields.io/packagist/v/mrgoodbytes8667/pluralize-bundle?logo=packagist&logoColor=FFF&style=flat)](https://packagist.org/packages/mrgoodbytes8667/pluralize-bundle)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/mrgoodbytes8667/pluralize-bundle?logo=php&logoColor=FFF&style=flat)](https://packagist.org/packages/mrgoodbytes8667/pluralize-bundle)
+![Symfony Version](https://img.shields.io/badge/symfony-%5E5.2-blue?logo=symfony&logoColor=FFF&style=flat)
+![Packagist License](https://img.shields.io/packagist/l/mrgoodbytes8667/pluralize-bundle?logo=creative-commons&logoColor=FFF&style=flat)  
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mrgoodbytes8667/pluralize-bundle/release?label=stable&logo=github&logoColor=FFF&style=flat)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mrgoodbytes8667/pluralize-bundle/tests?logo=github&logoColor=FFF&style=flat)
+[![codecov](https://img.shields.io/codecov/c/github/mrgoodbytes8667/pluralize-bundle?logo=codecov&logoColor=FFF&style=flat)](https://codecov.io/gh/mrgoodbytes8667/pluralize-bundle)  
 A Symfony/Twig bundle for pluralizing strings
 
 ## Installation
