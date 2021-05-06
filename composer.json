@@ -1,18 +1,15 @@
 {
     "name": "mrgoodbytes8667/pluralize-bundle",
     "type": "symfony-bundle",
+    "description": "A (Twig) wrapper bundle for pluralizing strings via Illuminate",
     "license": "CC-BY-NC-4.0",
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
         "laravel/helpers": "^1.4",
         "symfony/config": "^5.2",
-        "symfony/console": "^5.2",
         "symfony/dependency-injection": "^5.2",
-        "symfony/framework-bundle": "^5.2",
-        "symfony/serializer": "^5.2",
         "symfony/string": "^5.2",
-        "symfony/validator": "^5.2",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
