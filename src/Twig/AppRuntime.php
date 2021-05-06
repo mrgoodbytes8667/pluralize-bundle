@@ -3,8 +3,8 @@
 
 namespace Bytes\PluralizeBundle\Twig;
 
+use Bytes\PluralizeBundle\Pluralize;
 use Exception;
-use Illuminate\Support\Str;
 use Twig\Extension\RuntimeExtensionInterface;
 
 /**
@@ -27,14 +27,11 @@ class AppRuntime implements RuntimeExtensionInterface
     {
         // Is it a number?
         if (!is_numeric($number)) {
-            throw new Exception('$value must be a number.');
+            throw new Exception('$number must be a number.');
         }
-
-        // Choose the correct string
-        if ($number == 1) {
-            return Str::singular($string);
-        } else {
-            return Str::plural($string);
+        if(!is_string($string)) {
+            throw new Exception('$string must be a string.');
         }
+        return Pluralize::pluralize($number, $string, false);
     }
 }
