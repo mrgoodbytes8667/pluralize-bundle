@@ -6,13 +6,16 @@ namespace Bytes\PluralizeBundle\Tests;
 
 use Bytes\PluralizeBundle\Twig\AppRuntime;
 use Bytes\PluralizeBundle\Twig\PluralizeExtension;
+use Twig\Extension\ExtensionInterface;
 use Twig\RuntimeLoader\RuntimeLoaderInterface;
 use Twig\Test\IntegrationTestCase;
 
 class IntegrationTest extends IntegrationTestCase
 {
-
-    public function getExtensions()
+    /**
+     * @return ExtensionInterface[]
+     */
+    protected function getExtensions(): array
     {
         return [
             new PluralizeExtension()
@@ -26,7 +29,8 @@ class IntegrationTest extends IntegrationTestCase
     {
         return [
             new class implements RuntimeLoaderInterface {
-                public function load($class) {
+                public function load($class)
+                {
                     if (AppRuntime::class === $class) {
                         return new AppRuntime();
                     }
@@ -35,12 +39,11 @@ class IntegrationTest extends IntegrationTestCase
         ];
     }
 
-
     /**
      * @return string
      */
     protected function getFixturesDir()
     {
-        return __DIR__.'/Fixtures/';
+        return __DIR__ . '/Fixtures/';
     }
 }
