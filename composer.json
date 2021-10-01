@@ -9,6 +9,7 @@
         "laravel/helpers": "^1.4",
         "symfony/config": "^5.2",
         "symfony/dependency-injection": "^5.2",
+        "symfony/http-kernel": "^5.2",
         "symfony/string": "^5.2",
         "twig/twig": "^2.12|^3.0"
     },
