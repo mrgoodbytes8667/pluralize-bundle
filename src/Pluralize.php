@@ -26,19 +26,7 @@ class Pluralize
     {
         $inflector = new EnglishInflector();
 
-        $result = $string;
-        $results = [];
-
-        // Choose the correct string
-        if ($number == 1) {
-            $results = $inflector->singularize($string);
-        } else {
-            $results = $inflector->pluralize($string);
-        }
-        if(!empty($results))
-        {
-            $result = array_shift($results);
-        }
+        $result = self::processWord($string, $number, $inflector);
 
         return self::format($number, $result, $includeNumber);
     }
@@ -57,5 +45,30 @@ class Pluralize
         } else {
             return $string;
         }
+    }
+
+    /**
+     * @param string $string
+     * @param int $number
+     * @param EnglishInflector $inflector
+     * @return string|null
+     */
+    protected static function processWord(string $string, int $number, EnglishInflector $inflector)
+    {
+        $result = $string;
+        $results = [];
+
+        // Choose the correct string
+        if ($number == 1) {
+            $results = $inflector->singularize($string);
+        } else {
+            // Swap word to singular first
+            $string = self::processWord($string, 1, $inflector);
+            $results = $inflector->pluralize($string);
+        }
+        if (!empty($results)) {
+            $result = array_shift($results);
+        }
+        return $result;
     }
 }
