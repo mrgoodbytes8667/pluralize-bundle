@@ -4,7 +4,7 @@
 namespace Bytes\PluralizeBundle;
 
 
-use Illuminate\Support\Str;
+use Symfony\Component\String\Inflector\EnglishInflector;
 use function Symfony\Component\String\u;
 
 /**
@@ -24,12 +24,23 @@ class Pluralize
      */
     public static function pluralize(int $number, string $string, bool $includeNumber = true)
     {
+        $inflector = new EnglishInflector();
+
+        $result = $string;
+        $results = [];
+
         // Choose the correct string
         if ($number == 1) {
-            return self::format($number, Str::singular($string), $includeNumber);
+            $results = $inflector->singularize($string);
         } else {
-            return self::format($number, Str::plural($string), $includeNumber);
+            $results = $inflector->pluralize($string);
         }
+        if(!empty($results))
+        {
+            $result = array_shift($results);
+        }
+
+        return self::format($number, $result, $includeNumber);
     }
 
     /**

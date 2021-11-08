@@ -6,7 +6,6 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
-        "laravel/helpers": "^1.4",
         "symfony/config": "^5.2 | ^6.0",
         "symfony/dependency-injection": "^5.2 | ^6.0",
         "symfony/http-kernel": "^5.2 | ^6.0",
