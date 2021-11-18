@@ -24,23 +24,53 @@ class Pluralize
      */
     public static function pluralize(int $number, string $string, bool $includeNumber = true)
     {
-        $inflector = new EnglishInflector();
+        $result = self::setupResult($string, $number);
 
-        $result = self::processWord($string, $number, $inflector);
+        return self::format($number, $result, $includeNumber, false, 0, null, null);
+    }
 
-        return self::format($number, $result, $includeNumber);
+    /**
+     * @param int $number
+     * @param string $string
+     * @param int $decimals
+     * @param string|null $decimal_separator
+     * @param string|null $thousands_separator
+     * @return string
+     */
+    public static function pluralizeFormatted(int $number, string $string, int $decimals = 0, ?string $decimal_separator = '.', ?string $thousands_separator = ',')
+    {
+        $result = self::setupResult($string, $number);
+
+        return self::format($number, $result, true, true, $decimals, $decimal_separator, $thousands_separator);
+    }
+
+    /**
+     * @param string $string
+     * @param int $number
+     * @return string|null
+     */
+    private static function setupResult(string $string, int $number): ?string
+    {
+        return self::processWord($string, $number, new EnglishInflector());
     }
 
     /**
      * @param int $number
      * @param string $string
      * @param bool $includeNumber
+     * @param bool $format
+     * @param int $decimals
+     * @param string|null $decimalSeparator
+     * @param string|null $thousandsSeparator
      * @return string
      */
-    private static function format(int $number, string $string, bool $includeNumber = false): string
+    private static function format(int $number, string $string, bool $includeNumber, bool $format, int $decimals, ?string $decimalSeparator, ?string $thousandsSeparator): string
     {
         if($includeNumber)
         {
+            if($format) {
+                $number = number_format($number, $decimals, $decimalSeparator, $thousandsSeparator);
+            }
             return u($string)->prepend(' ')->prepend($number)->toString();
         } else {
             return $string;
@@ -53,7 +83,7 @@ class Pluralize
      * @param EnglishInflector $inflector
      * @return string|null
      */
-    protected static function processWord(string $string, int $number, EnglishInflector $inflector)
+    protected static function processWord(string $string, int $number, EnglishInflector $inflector): ?string
     {
         $result = $string;
         $results = [];
